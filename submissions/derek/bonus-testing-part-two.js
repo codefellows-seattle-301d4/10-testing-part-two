@@ -60,10 +60,9 @@ var tooHungryDay;
    meals)
   */
 tooHungryDay = 0;
-var averageMealsPerDay = 0;
 mealsPerDay.forEach( function(item, index, array) {
   var dayN = array.slice(0,index+1);
-  averageMealsPerDay = dayN.reduce(function(total,element){
+  var averageMealsPerDay = dayN.reduce(function(total,element){
     return total + element;
   }) / dayN.length;
   console.log('Day ' + (index + 1) + ': average meals per day: ' + averageMealsPerDay);
