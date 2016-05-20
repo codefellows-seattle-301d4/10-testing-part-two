@@ -80,3 +80,9 @@ expect(
   // Write a second test expecting that tooHungryDay falls within an acceptable answer
   // based on the number of days available in the array. Remember to:
   // pass in your expression, and write a failure and a success message.
+
+
+expect(
+  tooHungryDay <= mealsPerDay.length,
+  'tooHungryDay should be less than ' + mealsPerDay.length,
+  'The lions average meals per day was with in range');
