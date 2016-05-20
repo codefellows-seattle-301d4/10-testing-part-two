@@ -59,7 +59,17 @@ var tooHungryDay;
    pondering protein supplements (the first day the average dips below 4
    meals)
   */
-
+mealsPerDay.reduce(function(acc, cur, idx, arr){
+  var message, average, days;
+  days = idx + 1;
+  average = (acc + cur) / days;
+  if (average < 4 & typeof(tooHungryDay) === 'undefined') {
+    tooHungryDay = days;
+  }
+  message = 'Day ' + days + ':' + ' The lion has had an averge of ' + average + ' meals per day.' ;
+  console.log(message);
+  return acc + cur;
+}, 0);
 
 expect(
   typeof(tooHungryDay) === 'number',
