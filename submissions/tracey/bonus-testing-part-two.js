@@ -51,6 +51,23 @@ expect(
 var mealsPerDay = [5, 4, 3, 6, 2, 4, 3, 4, 5, 1];
 var tooHungryDay;
 
+function logArrayEle(ele, index, array) {
+  console.log('Day ' + (index + 1) + ': The lion was fed ' + ele + ' times. ');
+}
+
+function findNumber(arry){
+  for(var i = 0; i < arry.length; i++){
+    if(arry[i] < 4){
+      tooHungryDay = i + 1;
+      return tooHungryDay;
+    }
+  }
+}
+
+function findLionBreakPoint() {
+  console.log(mealsPerDay.forEach(logArrayEle));
+  return findNumber(mealsPerDay);
+}
   /*
    TODO:
    Cycle through the days in mealsPerDay. At each day, print out the average
@@ -70,3 +87,5 @@ expect(
   // Write a second test expecting that tooHungryDay falls within an acceptable answer
   // based on the number of days available in the array. Remember to:
   // pass in your expression, and write a failure and a success message.
+
+expect(tooHungryDay <= (mealsPerDay.length + 1), 'tooHungryDay should be less than the lenght of the array plus 1', 'you win at life today');
