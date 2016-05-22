@@ -59,6 +59,18 @@ var tooHungryDay;
    pondering protein supplements (the first day the average dips below 4
    meals)
   */
+var averageMealsPerDay =  mealsPerDay.map(function(meal, index, array) {
+  var average = 0;
+  for (var i = 0; i < index + 1; i++) {
+    average += array[i] / (index + 1);
+  }
+  console.log(average);
+  return average;
+});
+
+tooHungryDay = 1 + averageMealsPerDay.findIndex(function(day) {
+  return day < 4;
+});
 
 
 expect(
@@ -70,3 +82,7 @@ expect(
   // Write a second test expecting that tooHungryDay falls within an acceptable answer
   // based on the number of days available in the array. Remember to:
   // pass in your expression, and write a failure and a success message.
+expect(
+  0 < tooHungryDay < mealsPerDay.length,
+  'tooHungryDay should be a day that is greater than 0 and less than the number of days the lion got fed, instead we got ' + tooHungryDay,
+  'The lion appears to be too hungry after ' + tooHungryDay + 'days.');
