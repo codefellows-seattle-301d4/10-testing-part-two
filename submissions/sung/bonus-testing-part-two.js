@@ -83,6 +83,6 @@ expect(
   // based on the number of days available in the array. Remember to:
   // pass in your expression, and write a failure and a success message.
 expect(
-  0 < tooHungryDay < mealsPerDay.length,
+  0 < tooHungryDay && tooHungryDay <= mealsPerDay.length,
   'tooHungryDay should be a day that is greater than 0 and less than the number of days the lion got fed, instead we got ' + tooHungryDay,
   'The lion appears to be too hungry after ' + tooHungryDay + 'days.');
