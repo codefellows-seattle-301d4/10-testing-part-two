@@ -50,24 +50,37 @@ expect(
   // number of times the new caretaker fed the lion. one array entry per day
 var mealsPerDay = [5, 4, 3, 6, 2, 4, 3, 4, 5, 1];
 var tooHungryDay;
-
-function logArrayEle(ele, index, array) {
-  console.log('Day ' + (index + 1) + ': The lion was fed ' + ele + ' times. ');
-}
-
-function findNumber(arry){
-  for(var i = 0; i < arry.length; i++){
-    if(arry[i] < 4){
-      tooHungryDay = i + 1;
-      return tooHungryDay;
-    }
+var totalMeals = 0;
+var aveMeals = 0;
+for(var i = 0; i < mealsPerDay.length; i++){
+  totalMeals += mealsPerDay[i];
+  aveMeals = totalMeals / (i + 1);
+  console.log(aveMeals);
+  if(aveMeals < 4) {
+    tooHungryDay = i + 1;
+    console.log('Day ' + tooHungryDay + ' the average meals dipped below 4. Today the average was ' + [aveMeals] + '. The lion ate the caretaker.');
+    break;
   }
 }
+//
+// function logArrayEle(ele, index, array) {
+//   console.log('Day ' + (index + 1) + ': The lion was fed ' + ele + ' times. ');
+// }
+//
+// function findNumber(arry){
+//   for(var i = 0; i < arry.length; i++){
+//     if(arry[i] < 4){
+//       tooHungryDay = i + 1;
+//       return tooHungryDay;
+//     }
+//   }
+// }
 
-function findLionBreakPoint() {
-  console.log(mealsPerDay.forEach(logArrayEle));
-  return findNumber(mealsPerDay);
-}
+
+// function findLionBreakPoint() {
+//   console.log(mealsPerDay.forEach(logArrayEle));
+//   return findNumber(mealsPerDay);
+// }
   /*
    TODO:
    Cycle through the days in mealsPerDay. At each day, print out the average
